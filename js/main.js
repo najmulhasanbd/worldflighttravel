@@ -403,3 +403,57 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "power3.out",
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Three.js: Subtle Floating Geometry Background
+  const initPartnersBG = () => {
+    const container = document.getElementById("partners-bg-canvas");
+    if (!container) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000,
+    );
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const material = new THREE.PointsMaterial({ size: 0.02, color: "#0E4C96" });
+    const particles = new THREE.Points(geometry, material);
+    scene.add(particles);
+    camera.position.z = 15;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particles.rotation.x += 0.001;
+      particles.rotation.y += 0.001;
+      renderer.render(scene, camera);
+    }
+    animate();
+  };
+
+  // 2. GSAP: Partners Logo Reveal
+  const initPartnerReveal = () => {
+    gsap.to(".reveal-partner", {
+      scrollTrigger: {
+        trigger: ".partners-section",
+        start: "top 80%",
+        once: true,
+      },
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      startAt: { y: 40, scale: 0.8 },
+      stagger: 0.1,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+    });
+  };
+
+  initPartnersBG();
+  initPartnerReveal();
+});
