@@ -1129,3 +1129,53 @@ video {
     /* Hover korle original color firbe */
     opacity: 1;
 }
+
+
+/* --- Modern Sticky Header --- */
+.header-sticky {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Jokhon class-ti JS diye add hobe */
+.header-sticky.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background: rgba(255, 255, 255, 0.95); */
+    /* Halka transparent white */
+    backdrop-filter: blur(10px);
+    /* Glass look */
+    box-shadow: 0 10px 30px rgba(14, 76, 150, 0.1);
+    /* Subtle blue shadow */
+    padding: 10px 0;
+    /* Sticky hole header ektu choto hoye jabe */
+    animation: slideDownHeader 0.5s ease-out;
+    border-bottom: 1px solid rgba(14, 76, 150, 0.05);
+}
+
+/* Header Slide Down Animation */
+@keyframes slideDownHeader {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Sticky avosthay logo ba menu item-er color change korte chaile */
+
+
+/* Mobile Toggle Button adjust in sticky */
+.header-sticky.sticky .btn-menu-trigger {
+    background: #0E4C96;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+}

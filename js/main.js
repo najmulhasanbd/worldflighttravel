@@ -1,3 +1,23 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // 0. GSAP Registration
+  gsap.registerPlugin(ScrollTrigger);
+  const isMobile = window.innerWidth < 992;
+
+  // ==========================================
+  // 1. STICKY HEADER LOGIC (Pure JS - Fast)
+  // ==========================================
+  const header = document.querySelector(".header-sticky");
+  if (header) {
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector(".header-sticky");
+      if (window.scrollY > 150) {
+        header.classList.add("sticky");
+      } else {
+        header.classList.remove("sticky");
+      }
+    });
+  }
+});
 /**
  * World Flight Travels - Ultimate Merged JS
  * GSAP 3 + Three.js + ScrollTrigger
@@ -78,7 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
       0.1,
       1000,
     );
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+    });
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
     const sphere = new THREE.Points(
@@ -111,7 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
       0.1,
       1000,
     );
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+    });
     renderer.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.domElement);
     new THREE.TextureLoader().load(imageUrl, (texture) => {
@@ -422,7 +448,10 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(renderer.domElement);
 
     const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const material = new THREE.PointsMaterial({ size: 0.02, color: "#0E4C96" });
+    const material = new THREE.PointsMaterial({
+      size: 0.02,
+      color: "#0E4C96",
+    });
     const particles = new THREE.Points(geometry, material);
     scene.add(particles);
     camera.position.z = 15;
@@ -457,5 +486,3 @@ document.addEventListener("DOMContentLoaded", () => {
   initPartnersBG();
   initPartnerReveal();
 });
-
-
