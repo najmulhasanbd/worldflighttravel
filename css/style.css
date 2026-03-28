@@ -686,6 +686,212 @@ video {
     opacity: 1;
 }
 
+
+/* Animation Definitions */
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slowRotate {
+    0% {
+        transform: scale(0.9) rotate(-3deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Applying Animations */
+.slide-in-left {
+    opacity: 0;
+    /* Animation shuru hobar age hidden thakbe */
+    animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.rotate-in {
+    animation: slowRotate 1.2s ease-out forwards;
+}
+
+/* Styling */
+.why-item {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid transparent;
+    transition: 0.3s all ease;
+}
+
+.why-item:hover {
+    border-left-color: #0E4C96;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(14, 76, 150, 0.1);
+}
+
+.why-icon {
+    width: 50px;
+    height: 50px;
+    background: #eef4ff;
+    color: #0E4C96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.why-text h5 {
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.why-text p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Image Styling */
+.image-stack {
+    position: relative;
+    padding: 30px;
+}
+
+.main-img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+.floating-card {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #0E4C96;
+    font-size: 14px;
+}
+
+.about-modern-section {
+    background: #f8fbff;
+    overflow: hidden;
+}
+
+.rounded-24 {
+    border-radius: 24px;
+}
+
+/* Image Frame Styling */
+.about-image-frame {
+    position: relative;
+    padding: 15px;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -10px;
+    background: #0E4C96;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 15px 35px rgba(14, 76, 150, 0.3);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    border-radius: 24px;
+    height: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: #eef4ff;
+    color: #0E4C96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.mission-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mission-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.mission-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0E4C96;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-up {
+    animation: fadeInUp 1s ease forwards;
+}
+
+.empower-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    border: 1px solid #e1eefd;
+}
+
 /* contact page */
 .contact-section {
     background: #fcfdfe;
