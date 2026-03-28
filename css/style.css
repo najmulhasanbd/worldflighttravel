@@ -413,6 +413,155 @@ video {
     border-left: 5px solid var(--secondary-color);
 }
 
+.services-section {
+    background: #fdfdfd;
+}
+
+.title-underline {
+    width: 60px;
+    height: 4px;
+    background: #ffca28;
+    /* Highlight color */
+    border-radius: 2px;
+}
+
+.service-box {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(14, 76, 150, 0.1);
+    padding: 40px 30px;
+    border-radius: 24px;
+    text-align: center;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.service-icon-wrap {
+    width: 70px;
+    height: 70px;
+    background: #0E4C96;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    border-radius: 18px;
+    transition: 0.4s;
+}
+
+.service-box h4 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-box p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Hover Effects */
+.service-box:hover {
+    transform: translateY(-15px);
+    background: #fff;
+    box-shadow: 0 20px 40px rgba(14, 76, 150, 0.1);
+    border-color: #0E4C96;
+}
+
+.service-box:hover .service-icon-wrap {
+    transform: rotateY(180deg);
+    background: #ffca28;
+}
+
+/* Hidden for GSAP */
+.reveal-card {
+    opacity: 0;
+}
+
+.industries-section {
+    background: #fbfbfb;
+}
+
+.industry-card {
+    height: 380px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.industry-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(14, 76, 150, 0.9) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    transition: 0.4s ease;
+}
+
+.industry-content {
+    position: relative;
+    z-index: 2;
+    padding: 25px;
+    width: 100%;
+    color: white;
+}
+
+.industry-icon {
+    font-size: 30px;
+    margin-bottom: 15px;
+    color: #ffca28;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.industry-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: 0.4s ease;
+}
+
+.industry-card p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0;
+    max-height: 0;
+    transition: 0.4s ease;
+}
+
+/* Hover Effects */
+.industry-card:hover {
+    transform: scale(1.03);
+}
+
+.industry-card:hover .industry-overlay {
+    background: linear-gradient(to top, rgba(14, 76, 150, 0.95) 0%, rgba(14, 76, 150, 0.4) 100%);
+}
+
+.industry-card:hover .industry-icon {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.industry-card:hover p {
+    opacity: 1;
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+/* Hidden for GSAP */
+.reveal-industry {
+    opacity: 0;
+}
+
 /* contact page */
 .contact-section {
     background: #fcfdfe;

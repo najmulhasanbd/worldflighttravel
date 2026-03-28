@@ -369,3 +369,37 @@ document.addEventListener("DOMContentLoaded", () => {
   initCountriesGlobe();
   initCountriesReveal();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Reveal Cards on Scroll
+  gsap.to(".reveal-card", {
+    scrollTrigger: {
+      trigger: ".services-section",
+      start: "top 80%",
+      once: true,
+    },
+    opacity: 1,
+    y: 0,
+    startAt: { y: 50 },
+    stagger: 0.15,
+    duration: 1,
+    ease: "power4.out",
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  // GSAP Animation for Industry Cards
+  gsap.to(".reveal-industry", {
+    scrollTrigger: {
+      trigger: ".industries-section",
+      start: "top 80%",
+      once: true,
+    },
+    opacity: 1,
+    y: 0,
+    startAt: { y: 60 },
+    stagger: 0.2,
+    duration: 1.2,
+    ease: "power3.out",
+  });
+});
