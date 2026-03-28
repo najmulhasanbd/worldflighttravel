@@ -55,6 +55,76 @@ video {
     height: auto;
 }
 
+
+/* button */
+/* Reusable Premium Button */
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color) !important;
+    padding: 14px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid var(--secondary-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 202, 40, 0.2);
+    width: auto;
+    margin: auto;
+}
+
+/* Hover State: Color Invert Effect */
+.btn:hover {
+    color: #ffffff !important;
+    /* Text becomes white */
+    background-color: transparent;
+    border-color: #ffffff;
+    /* Border becomes white for contrast */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Background Fill Animation */
+.btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--primary-color);
+    /* Fills with Blue */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn:hover::after {
+    height: 100%;
+}
+
+/* Icon Animation */
+.btn i {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover i {
+    transform: rotate(15deg) scale(1.2);
+}
+
+/* Button Active/Click */
+.btn:active {
+    transform: translateY(0);
+}
+
 /* 5. Header Section */
 .header-top {
     background: var(--primary-color);
@@ -167,27 +237,231 @@ video {
     }
 }
 
-/* 10. Utilities */
 ::selection {
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
 .logo-anim {
-    /* REMOVE opacity: 0 from here */
     display: inline-block;
 }
 
-/* 8. Offcanvas (Mobile Menu) Styling */
 .offcanvas-body ul {
     display: block !important;
-    /* Ensure list is visible */
     opacity: 1 !important;
 }
 
 .offcanvas-body ul li a {
     opacity: 1 !important;
-    /* Mobile e opacity forced visual thakbe */
     display: block;
     width: 100%;
+}
+
+/* hero */
+.hero-area {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.hero-area::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(14, 76, 150, 0.9) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: auto;
+    padding: 0 20px;
+    color: #ffffff;
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content .btn {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 35px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero-canvas canvas {
+    display: block;
+    opacity: 0.5;
+}
+
+/* about */
+/* About Section Gorgeous Animation styles */
+.about-section {
+    background-color: #fcfcfc;
+    overflow: hidden;
+}
+
+.about-interactive-img {
+    position: relative;
+    perspective: 1500px;
+    /* Essential for 3D tilt */
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.about-interactive-img .main-img-element {
+    transition: all 0.5s ease-out;
+    border: 10px solid #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Gorgeous Effect with GSAP help */
+.about-interactive-img:hover .main-img-element {
+    box-shadow: 0 25px 80px rgba(14, 76, 150, 0.2);
+}
+
+/* Floating Glassmorphism Badge */
+.floating-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: rgba(14, 76, 150, 0.85);
+    /* Blue translucent */
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+    animation: float 4s ease-in-out infinite;
+}
+
+.floating-badge .num {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--secondary-color);
+}
+
+.floating-badge .txt {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Float Animation */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Text reveal wrapper */
+.reveal-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.reveal-item {
+    display: block;
+}
+
+/* Fact items */
+.fact-item {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s, border 0.3s;
+    border-left: 0px solid transparent;
+}
+
+.fact-item:hover {
+    transform: translateY(-8px) scale(1.03);
+    border-left: 5px solid var(--secondary-color);
+}
+
+/* choose */
+.why-choose-section {
+    background: #f8f9fa;
+    min-height: 80vh;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(14, 76, 150, 0.08);
+}
+
+.why-image-wrapper {
+    position: relative;
+    padding: 20px;
+}
+
+.custom-tilt-img {
+    transition: transform 0.2s ease-out;
+    transform-style: preserve-3d;
+}
+
+.stat-card {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background: white;
+    border-left: 5px solid var(--secondary-color);
+    border-radius: 8px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
 }
