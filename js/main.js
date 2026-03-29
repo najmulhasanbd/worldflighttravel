@@ -465,24 +465,20 @@ document.addEventListener("DOMContentLoaded", () => {
     animate();
   };
 
-  // 2. GSAP: Partners Logo Reveal
   const initPartnerReveal = () => {
     gsap.to(".reveal-partner", {
       scrollTrigger: {
         trigger: ".partners-section",
-        start: "top 80%",
+        start: "top 85%",
         once: true,
       },
       opacity: 1,
       y: 0,
       scale: 1,
-      startAt: { y: 40, scale: 0.8 },
+      startAt: { y: 40, scale: 0.9 },
       stagger: 0.1,
       duration: 0.8,
-      ease: "back.out(1.7)",
+      ease: "back.out(1.5)",
     });
   };
-
-  initPartnersBG();
-  initPartnerReveal();
 });
